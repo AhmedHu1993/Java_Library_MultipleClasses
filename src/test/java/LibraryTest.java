@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
+
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
@@ -52,5 +54,11 @@ public class LibraryTest {
         library.lendBookToBorrower(borrower, book2);
         assertEquals(1, borrower.getNumberOfBorrowedBooks());
         assertEquals(4, library.getBookStock());
+    }
+
+    @Test
+    public void testLibraryHasHashMapOfGenres(){
+        HashMap booksHash = library.classifyTheBooksToGenres();
+        assertEquals(2, booksHash.get("Social") );
     }
 }
