@@ -13,4 +13,12 @@ public class Borrower {
     public String getName(){
         return this.name;
     }
+
+    public int getNumberOfBorrowedBooks(){
+        return this.borrowedBooks.size();
+    }
+
+    public void addBookToBorrowedBooks(Book book){
+        this.borrowedBooks.add(book);
+    }
 }

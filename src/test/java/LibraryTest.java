@@ -11,6 +11,7 @@ public class LibraryTest {
     private Book book4;
     private Book book5;
     private Library library;
+    private Borrower borrower;
 
     @Before
     public void setUp(){
@@ -20,6 +21,7 @@ public class LibraryTest {
         book4 = new Book("Oliver Twist","Charles Dickens", "Social");
         book5 = new Book("David CopperField","Charles Dickens", "Social");
         library = new Library("The Central Library", 5);
+        borrower = new Borrower("Doola");
 
         library.addBookToStock(book1);
         library.addBookToStock(book2);
@@ -43,5 +45,12 @@ public class LibraryTest {
         Book book6 = new Book("title", "author", "genre");
         library.addBookToStock(book6);
         assertEquals(5, library.getBookStock());
+    }
+
+    @Test
+    public void testLibraryCanLendBookToBorrower(){
+        library.lendBookToBorrower(borrower, book2);
+        assertEquals(1, borrower.getNumberOfBorrowedBooks());
+        assertEquals(4, library.getBookStock());
     }
 }

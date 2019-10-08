@@ -27,4 +27,11 @@ public class Library {
             this.bookStock.add(book);
         }
     }
+
+    public void lendBookToBorrower(Borrower borrower, Book book) {
+        if (this.bookStock.contains(book)){
+            this.bookStock.remove(book);
+            borrower.addBookToBorrowedBooks(book);
+        }
+    }
 }
